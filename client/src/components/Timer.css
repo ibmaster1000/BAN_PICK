@@ -1,0 +1,143 @@
+.timer-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.timer-container.active {
+  border: 2px solid #667eea;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+}
+
+.timer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.timer-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #212529;
+  margin: 0;
+}
+
+.turn-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #51cf66;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.turn-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #51cf66;
+  animation: pulse 2s infinite;
+}
+
+.timer-display {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.timer-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color) 0deg,
+    var(--color) calc(var(--progress) * 3.6deg),
+    #e9ecef calc(var(--progress) * 3.6deg),
+    #e9ecef 360deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.timer-circle::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: white;
+  z-index: 1;
+}
+
+.timer-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #212529;
+  z-index: 2;
+  position: relative;
+}
+
+.timer-status {
+  margin-top: 16px;
+}
+
+.status-active {
+  color: #51cf66;
+  font-weight: 600;
+  margin: 0;
+}
+
+.status-inactive {
+  color: #6c757d;
+  font-weight: 500;
+  margin: 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .timer-container {
+    padding: 20px;
+  }
+  
+  .timer-circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .timer-circle::before {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .timer-text {
+    font-size: 20px;
+  }
+  
+  .timer-header {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

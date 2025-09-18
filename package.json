@@ -1,0 +1,38 @@
+{
+  "name": "teamkeo-tourney-banpick",
+  "version": "1.0.0",
+  "description": "Tournament Ban/Pick System for Team KEO",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/index.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd client && npm install"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.10.0",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.0.0",
+    "in": "^0.19.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
+    "socket.io": "^4.7.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0",
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "tournament",
+    "banpick",
+    "gaming",
+    "authentication"
+  ],
+  "author": "Team KEO",
+  "license": "MIT"
+}
